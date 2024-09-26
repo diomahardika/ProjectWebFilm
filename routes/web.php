@@ -28,7 +28,7 @@ Route::prefix('prototype')->name('prototype.')->group(function(){
     })->name('login');
 
     route::get('/dashboard', function(){
-        return 'welcome dashboard';
+        return Inertia::render('Prototype/Dashboard');
     })->name('dashboard');
 
     route::get('/register', function(){
