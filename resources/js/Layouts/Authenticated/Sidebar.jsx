@@ -1,4 +1,6 @@
-export default function sidebar() {
+import { Link } from "@inertiajs/react";
+
+export default function Sidebar() {
     return (
         <aside className="fixed z-50 w-[300px] h-full">
             <div className="flex flex-col p-[30px] pr-0 border-r border-gray-[#F1F1F1] overflow-y-auto h-full">
@@ -6,10 +8,12 @@ export default function sidebar() {
                     <img src="/images/moonton.svg" alt="" />
                 </a>
                 <div className="links flex flex-col mt-[60px] h-full gap-[50px]">
-                    {/* <!-- Menu --> */}
                     <div>
                         <div className="text-gray-1 text-sm mb-4">Menu</div>
-                        <a href="/" className="side-link active">
+                        <Link
+                            href={route("prototype.dashboard")}
+                            className="side-link active"
+                        >
                             <svg
                                 width="24"
                                 height="24"
@@ -27,7 +31,7 @@ export default function sidebar() {
                                 </g>
                             </svg>
                             Discover
-                        </a>
+                        </Link>
                         <a href="#!" className="side-link">
                             <svg
                                 width="24"
@@ -77,12 +81,13 @@ export default function sidebar() {
                             Messages (102)
                         </a>
                     </div>
-                    {/* <!-- ./Menu --> */}
 
-                    {/* <!-- Others --> */}
                     <div>
                         <div className="text-gray-1 side-link mb-4">Others</div>
-                        <a href="pricing.html" className="side-link">
+                        <Link
+                            href={route("prototype.subscriptionPlan")}
+                            className="side-link"
+                        >
                             <svg
                                 width="24"
                                 height="24"
@@ -97,7 +102,7 @@ export default function sidebar() {
                                 />
                             </svg>
                             Payments
-                        </a>
+                        </Link>
                         <a href="#!" className="side-link">
                             <svg
                                 width="24"
@@ -148,9 +153,7 @@ export default function sidebar() {
                             Logout
                         </a>
                     </div>
-                    {/* <!-- ./Others --> */}
 
-                    {/* <!-- Subscription details --> */}
                     <div className="mt-auto pr-[30px]">
                         <div className="p-5 bg-black rounded-[25px]">
                             <img src="/icons/ic_star-rounded.svg" alt="" />
@@ -165,7 +168,6 @@ export default function sidebar() {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- ./Subscription details --> */}
                 </div>
             </div>
         </aside>
