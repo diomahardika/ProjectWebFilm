@@ -1,8 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
-TextInput.propTypes = {
-    type: PropTypes.oneOf(["text", "email", "password", "number", "file"]),
+Input.propTypes = {
+    type: PropTypes.oneOf([
+        "text",
+        "email",
+        "password",
+        "number",
+        "file",
+        "url",
+    ]),
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -16,7 +23,7 @@ TextInput.propTypes = {
     isError: PropTypes.bool,
 };
 
-export default function TextInput({
+export default function Input({
     type = "text",
     name,
     value,
@@ -29,7 +36,6 @@ export default function TextInput({
     handleChange,
     placeholder,
     isError,
-    ...props
 }) {
     const input = useRef();
 
@@ -37,12 +43,11 @@ export default function TextInput({
         if (isFocused) {
             input.current.focus();
         }
-    }, [isFocused]);
+    }, []);
 
     return (
         <div className="flex flex-col items-start">
             <input
-                {...props}
                 type={type}
                 name={name}
                 value={value}
