@@ -21,14 +21,14 @@ export default function Button({
     variant = "primary",
     processing,
     children,
-    ...props
 }) {
+    const widthClass = className.includes("w-") ? "" : "w-full";
+
     return (
         <button
-            {...props}
-            className={`rounded-2xl py-[13px] text-center w-full ${
-                processing && "opacity-30"
-            } btn-${variant} ${className}`}
+            type={type}
+            className={`rounded-2xl py-[13px] text-center ${widthClass} ${processing && "opacity-30"
+                } btn-${variant} ${className}`}
             disabled={processing}
         >
             {children}
