@@ -8,6 +8,7 @@ use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\MovieController;
 use App\Http\Controllers\User\SubscriptionPlanController;
 use App\Http\Controllers\Admin\MovieController as AdminMovieController;
+use App\Models\SubscriptionPlan;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// MIDTRANS ROUTE
+Route::post('midtrans/notification', [SubscriptionPlanController::class, 'midtransCallback']);
 
 Route::redirect('/', '/login');
 
